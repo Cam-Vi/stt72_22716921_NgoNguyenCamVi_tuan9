@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuan9</title>
+</head>
+<style>
+    * {
+        margin: 0px auto;
+        padding: 0px;
+    }
+    
+    .wrapper {
+        height: 789px;
+        width: 500px;
+    }
+</style>
+<script>
+    function Nhap() {
+        var tendn, mk;
+        tendn = document.getElementById("txtus").value;
+        mk = document.getElementById("txtmk").value;
+        // Lưu giá trị vào maảng Array()
+        var cafe = new Array();
+
+        var taphop = document.querySelectorAll("input[type='checkbox']");
+        taphop.forEach(function(chk) {
+            if (chk.checked)
+                cafe.push(chk.value);
+        }); // radio lưu 1 giá trị
+        var gioitinh;
+
+        var taphopgt = document.querySelectorAll("input[type='radio']");
+        taphopgt.forEach(function(ra) {
+            if (ra.checked)
+                gioitinh = ra.value;
+        });
+        //alert(tendn)//Xử lý tendn, mk:bỏ qua
+        var w = window.open("info.html");
+        //Lưu dữ liệu set:ghi vào
+        localStorage.setItem("us", tendn);
+        localStorage.setItem("pd", mk);
+        localStorage.setItem("cf", cafe);
+        localStorage.setItem("gt", gioitinh);
+    }
+</script>
+
+<body>
+    <div class="wrapper">
+        <form>
+            <input type="text" id="txtus" placeholder="User Name">
+            <br>
+            <input type="text" id="txtmk" placeholder="Password">
+            <br>
+            <input type="radio" name="gt" value="Nam">Nam
+            <input type="radio" name="gt" value="Nữ">Nữ
+            <br>
+            <input type="checkbox" value="Trung Nguyên">Trung Nguyên
+            <br>
+            <input type="checkbox" value="MeKong">MeKong
+            <br>
+            <input type="checkbox" value="New Blue">New Blue
+            <br>
+            <input type="checkbox" value="Trà sữa">Trà sữa
+            <br>
+            <input type="button" value="Nhập" onclick="Nhap()">
+        </form>
+    </div>
+
+</body>
+
+
+</html>
